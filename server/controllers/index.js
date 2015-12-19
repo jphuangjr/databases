@@ -10,8 +10,15 @@ module.exports = {
         res.end(JSON.stringify(data));
       });
     }, // a function which handles a get request for all messages
+    options: function (req, res) {
+      console.log(">>>>>>>>>>IN CONTROLLERS GET")
+      models.messages.get(function(data){
+        //TODO: DO SOMETHING WITH REPONSE DATA
+        res.end(JSON.stringify(data));
+      });
+    }, // a function which handles a get request for all messages
     post: function (req, res) {
-      // console.log(">>>>>>>>>>IN CONTROLLERS POST")
+      console.log(">>>>>>>>>>IN CONTROLLERS POST")
       models.messages.post(req.body, function(data){
         // console.log("success data: ", data);
       });
