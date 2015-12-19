@@ -1,4 +1,5 @@
 var db = require('../db');
+db.connect()
 
 module.exports = {
   messages: {
@@ -12,7 +13,8 @@ module.exports = {
       });
     }, // a function which produces all the messages
     post: function (data, callback) {
-      console.log(">>>>>>>>>>IN MODELS POST")
+      // console.log(data)
+      // console.log(">>>>>>>>>>IN MODELS POST")
       db.query('INSERT INTO messages SET ?', data, function(err, res){
         if (err) throw err;
         callback(res);
